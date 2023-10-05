@@ -2,7 +2,7 @@
 # Banner
 banner:
   title: "Howdy, friend!"
-  content: "Welcome to my personal website, where I share my journey as a web developer. For now, it's quite empty in here, so check out my professional voyage so far."
+  content: "Hey there! Welcome to my little corner of the web. I'm sharing my adventures as a web developer here. It's a bit sparse at the moment, but feel free to check out what I've been up to in my professional world!"
   image: "/images/banner.png"
   button:
     enable: true
