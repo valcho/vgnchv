@@ -4,11 +4,11 @@
     "base_url": "https://vgnchv.com",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
-    "logo_width": "150",
-    "logo_height": "30",
+    "favicon": "/images/logo/favicon.png",
+    "logo": "/images/logo/logo-base-black-large.png",
+    "logo_darkmode": "/images/logo/logo-darkmode.png",
+    "logo_width": "32",
+    "logo_height": "32",
     "logo_text": "Valentin"
   },
 

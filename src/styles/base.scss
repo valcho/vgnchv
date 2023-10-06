@@ -1,9 +1,18 @@
+@font-face {
+  font-family: "Cal Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url("/fonts/CalSans-SemiBold.woff2") format("woff2"),
+    url("/fonts/CalSans-SemiBold.woff") format("woff"),
+}
+
 html {
   @apply text-base;
 }
 
 body {
-  @apply bg-body font-primary font-normal leading-relaxed text-text dark:bg-darkmode-body dark:text-darkmode-text;
+  @apply bg-body font-secondary font-normal leading-relaxed text-text dark:bg-darkmode-body dark:text-darkmode-text;
 }
 
 h1,
@@ -12,7 +21,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-secondary font-bold leading-tight text-dark dark:text-darkmode-dark;
+  @apply font-primary font-bold leading-tight text-dark dark:text-darkmode-dark;
 }
 
 h1,
