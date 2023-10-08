@@ -1,4 +1,5 @@
 const theme = require("./src/config/theme.json");
+const plugin = require("tailwindcss/plugin");
 
 let font_base = Number(theme.fonts.font_size.base.replace("px", ""));
 let font_scale = Number(theme.fonts.font_size.scale);
@@ -29,9 +30,11 @@ module.exports = {
   darkMode: "class",
   theme: {
     screens: {
-      sm: "540px",
-      md: "768px",
-      lg: "1024px",
+      print: { raw: "print" },
+      xsm: "500px",
+      sm: "640px",
+      md: "833px",
+      lg: "1079.5px",
       xl: "1280px",
       "2xl": "1536px",
     },
@@ -62,6 +65,11 @@ module.exports = {
           "theme-dark": theme.colors.darkmode.theme_color.theme_dark,
         },
       },
+      height: {
+        letter: "86.9375rem",
+        "letter-col": "71.625rem",
+        "letter-col-full": "77.9375rem",
+      },
       fontSize: {
         base: font_base + "px",
         h1: h1 + "rem",
@@ -81,6 +89,139 @@ module.exports = {
     },
   },
   plugins: [
+    plugin(function ({ addBase, addUtilities, theme }) {
+      addBase({
+        body: {
+          "-webkit-font-smoothing": "subpixel-antialiased",
+        },
+      });
+
+      /**
+       * Typography Utilities
+       */
+      const typographyUtils = {
+        ".optimize-legibility": {
+          "text-rendering": "optimizeLegibility",
+        },
+        ".ligatures": {
+          "font-variant-ligatures": "common-ligatures",
+          "font-feature-settings": "'liga' on, 'clig' on",
+        },
+        ".kerning": {
+          "font-kerning": "normal",
+          "font-feature-settings": "'kern' on",
+        },
+        ".small-caps": {
+          "font-variant-caps": "small-caps",
+          "font-feature-settings": "'smcp' on",
+        },
+        ".all-small-caps": {
+          "font-variant-caps": "all-small-caps",
+          "font-feature-settings": "'c2sc' on, 'smcp' on",
+        },
+        ".lining-nums": {
+          "font-variant-numeric": "lining-nums",
+          "font-feature-settings": "'lnum' on",
+        },
+        ".oldstyle-nums": {
+          "font-variant-numeric": "oldstyle-nums",
+          "font-feature-settings": "'onum' on",
+        },
+        ".proportional-nums": {
+          "font-variant-numeric": "proportional-nums",
+          "font-feature-settings": "'pnum' on",
+        },
+        ".tabular-nums": {
+          "font-variant-numeric": "tabular-nums",
+          "font-feature-settings": "'tnum' on",
+        },
+        ".slashed-zero": {
+          "font-variant-numeric": "slashed-zero",
+          "font-feature-settings": "'zero' on",
+        },
+        ".super": {
+          "font-variant-position": "super",
+          "font-feature-settings": "'sups' on",
+        },
+        ".sub": {
+          "font-variant-position": "sub",
+          "font-feature-settings": "'sub' on",
+        },
+        ".ordinal": {
+          "font-variant-position": "ordinal",
+          "font-feature-settings": "'ordn' on",
+        },
+        ".fractions": {
+          "font-variant-numeric": "diagonal-fractions",
+          "font-feature-settings": "'frac' on",
+        },
+        ".case-sensitive": {
+          "text-transform": "uppercase",
+          "font-feature-settings": "'case' on",
+        },
+        ".hyphens-manual": {
+          hyphens: "manual",
+        },
+      };
+
+      addUtilities(typographyUtils, {
+        variants: ["responsive"],
+      });
+
+      /**
+       * Project Specific Utilities
+       */
+      const projectSpecificUtils = {
+        ".border-inset": {
+          "box-shadow": `inset 0 0 0 1px ${theme("colors.gray.400")}`,
+        },
+      };
+
+      addUtilities(projectSpecificUtils, {
+        variants: ["responsive"],
+      });
+
+      /**
+       * CSS Multi-Column Layout Utilities
+       */
+      const columnUtils = {
+        ".col-count-1": {
+          "column-count": "1",
+        },
+        ".col-count-2": {
+          "column-count": "2",
+        },
+        ".col-count-3": {
+          "column-count": "3",
+        },
+        ".col-gap-md": {
+          "column-gap": "2.1875rem",
+        },
+        ".break-after-col": {
+          "break-after": "column",
+        },
+        ".break-inside-avoid": {
+          "break-inside": "avoid",
+        },
+        ".break-after-avoid": {
+          "break-after": "avoid",
+        },
+        ".break-before-avoid": {
+          "break-after": "avoid",
+        },
+        ".col-fill-auto": {
+          "column-fill": "auto",
+        },
+        ".col-fill-balance": {
+          "column-fill": "balance",
+        },
+      };
+
+      addUtilities(columnUtils, {
+        variants: ["responsive"],
+      });
+    }),
+
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("tailwind-bootstrap-grid")({
