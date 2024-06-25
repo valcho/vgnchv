@@ -133,7 +133,7 @@
 
 html,
 body {
-  min-height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -143,6 +143,7 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
+  height: 100%;
 }
 
 *,
@@ -267,5 +268,11 @@ h5 {
   }
   .lg\:gap-48 {
     gap: 12rem;
+  }
+}
+
+@media print {
+  .sr-only {
+    display: none;
   }
 }
