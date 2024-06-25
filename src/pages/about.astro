@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
+import CallToAction from "../components/CallToAction.astro";
+import Icon from "../components/Icon.astro";
 ---
 
 <BaseLayout
@@ -57,15 +59,12 @@ import Hero from "../components/Hero.astro";
         </div>
       </section>
       <section>
-        <h2 class="section-title">Education</h2>
-        <div class="content">
-          <p>Corporis voluptates tenetur laudantium.</p>
-        </div>
-      </section>
-      <section>
-        <h2 class="section-title">Skills</h2>
-        <div class="content">
-          <p>officia unde omnis</p>
+        <div></div>
+        <div class="cta">
+          <CallToAction href="/resume/">
+            View my resume
+            <Icon icon="terminal-window" size="1.2em" />
+          </CallToAction>
         </div>
       </section>
     </main>
