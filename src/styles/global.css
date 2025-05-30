@@ -276,3 +276,13 @@ h5 {
     display: none;
   }
 }
+
+#cat-svg {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 100px; /* Increased placeholder size */
+  height: 100px; /* Increased placeholder size */
+  z-index: 9999; /* To ensure it's on top */
+  border: 1px solid red; /* Temporary border to see its bounds */
+}
